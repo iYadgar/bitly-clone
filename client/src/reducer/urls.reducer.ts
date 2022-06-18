@@ -1,6 +1,6 @@
-import {IUrl} from '../../../shared/types';
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import * as api from '../api'
+import {IUrl} from '../types';
 
 
 interface UrlsState {

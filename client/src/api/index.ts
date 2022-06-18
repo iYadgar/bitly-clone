@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {IUrl} from '../../../shared/types';
+import {IUrl} from '../types';
 
 
 export const saveNewUrl = async ({

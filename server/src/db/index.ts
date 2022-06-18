@@ -1,15 +1,11 @@
-import {IUrl} from '../../../shared/types';
 import {MongoClient, Collection, DeleteResult, InsertOneResult, ModifyResult, WithId} from 'mongodb';
+import {IUrl} from '../types';
+import * as dotenv from "dotenv";
 
-
-interface UrlDoc extends IUrl {
-	_id: string;
-}
-
-const ObjectId = require('mongodb').ObjectId;
+dotenv.config();
 
 class DBService {
-	client = new MongoClient('mongodb+srv://iYadgar:sLp5Q1nqiXkt5DcT@cluster0.izoomy6.mongodb.net/?retryWrites=true&w=majority');
+	client = new MongoClient(process.env.MONGO_URI || '');
 	dbName = 'Cluster0'
 	urlCollection: Collection<IUrl> | undefined
 
