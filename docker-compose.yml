@@ -1,5 +1,20 @@
 version: '2'
 services:
+  server:
+    build: ./server
+    hostname: bitly-server-api
+    depends_on:
+      - db
+    volumes:
+      - "./server:/app"
+    ports:
+      - "4444:4444"
+
+  db:
+    image: mongo
+    ports:
+      - "27017:27017"
+    container_name: urls-db
   client:
     build: ./client
     volumes:
@@ -11,10 +26,4 @@ services:
     links:
       - server
 
-  server:
-    build: ./server
-    volumes:
-      - "./server:/app"
-    ports:
-      - "4444:4444"
 

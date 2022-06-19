@@ -5,7 +5,7 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 class DBService {
-	client = new MongoClient(process.env.MONGO_URI || '');
+	client = new MongoClient('mongodb://urls-db:27017');
 	dbName = 'Cluster0'
 	urlCollection: Collection<IUrl> | undefined
 
